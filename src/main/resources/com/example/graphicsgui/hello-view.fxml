@@ -7,13 +7,20 @@
    <top>
       <MenuBar prefHeight="25.0" prefWidth="653.0" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+            <Menu mnemonicParsing="false">
+                <graphic>
+                    <Label text="File" style="-fx-font-size: 16px;"/>
+                </graphic>
             <items>
               <MenuItem mnemonicParsing="false" text="Load image" />
                 <MenuItem mnemonicParsing="false" text="Save image" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Filters">
+
+          <Menu mnemonicParsing="false">
+              <graphic>
+                  <Label text="Filters" style="-fx-font-size: 16px;"/>
+              </graphic>
             <items>
                 <MenuItem mnemonicParsing="false" text="Negative" />
                 <MenuItem mnemonicParsing="false" text="Pixelizer" />
@@ -24,15 +31,22 @@
                 <MenuItem mnemonicParsing="false" text="Vinnette" />
                 <MenuItem mnemonicParsing="false" text="Colorizer" />
             </items>
+
           </Menu>
-          <Menu mnemonicParsing="false" text="About &amp; Exit">
-            <items>
-                <MenuItem mnemonicParsing="false" text="About" onAction="#aboutButtonAction"/>
-                <MenuItem mnemonicParsing="false" text="Exit" onAction="#exitButtonAction"/>
-            </items>
+          <Menu mnemonicParsing="false">
+              <graphic>
+                  <Label text="About" onMouseClicked="#aboutButtonAction" style="-fx-font-size: 16px;"/>
+              </graphic>
           </Menu>
+
+            <Menu mnemonicParsing="false">
+                <graphic>
+                    <Label text="Exit" onMouseClicked="#exitButtonAction" style="-fx-font-size: 16px;"/>
+                </graphic>
+            </Menu>
         </menus>
       </MenuBar>
+       
    </top>
    <right>
       <Pane prefHeight="384.0" prefWidth="204.0" BorderPane.alignment="CENTER">
