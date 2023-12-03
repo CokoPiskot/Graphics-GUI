@@ -1,0 +1,57 @@
+.button-7 {
+    -fx-background-color: #0095ff;
+    -fx-border-color: transparent;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-font-weight: normal;
+    -fx-padding: 8px 0.8em;
+    -fx-alignment: center;
+    -fx-text-decoration: none;
+}
+
+.button-7:hover,
+
+.button-7:pressed {
+    -fx-background-color: #0064bd;
+    -fx-box-shadow: none;
+}
+
+.radio-button {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: #333;
+    -fx-cursor: hand;
+    -fx-padding: 5px 10px;
+    -fx-border-width: 1px;
+    -fx-border-color: #ddd;
+    -fx-background-color: #fff;
+    -fx-background-radius: 3px;
+    -fx-shape: null;
+}
+
+.radio-button:selected {
+    -fx-background-color: #0095ff;
+    -fx-text-fill: #fff;
+}
+
+.radio-button:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+.radio-button:focused {
+    -fx-border-color: #0095ff;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-box-shadow: 0 0 0 2px rgba(0, 149, 255, 0.3);
+}
+
+.radio-button:pressed {
+    -fx-background-color: #0064bd;
+    -fx-box-shadow: none;
+}

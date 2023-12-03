@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.graphicsgui.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.graphicsgui.HelloController">
    <top>
       <MenuBar prefHeight="25.0" prefWidth="653.0" BorderPane.alignment="CENTER">
         <menus>
@@ -59,38 +59,31 @@
    <right>
       <VBox BorderPane.alignment="CENTER" VBox.vgrow="always">
          <children>
-            <BorderPane prefHeight="167.0" prefWidth="200.0">
+            <BorderPane prefHeight="272.0" prefWidth="200.0">
                <bottom>
-                  <BorderPane prefHeight="72.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <top>
-                        <Pane prefHeight="73.0" prefWidth="200.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label layoutX="79.0" layoutY="28.0" text="MATRIX" />
-                           </children>
-                        </Pane>
-                     </top>
+                  <BorderPane prefHeight="70.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <center>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" text="Apply Matrix Filter" BorderPane.alignment="CENTER" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Apply Matrix Filter" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                </bottom>
                <center>
-                  <Pane prefHeight="74.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <Pane prefHeight="170.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" text="Select Image File" />
-                        <Button layoutX="9.0" layoutY="42.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" text="Edit Matrix" />
+                        <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Select Image File" />
+                        <Button layoutX="9.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Edit Matrix" />
                      </children>
                   </Pane>
                </center></BorderPane>
-            <TextArea disable="true" prefHeight="91.0" prefWidth="200.0" promptText="Text Area" VBox.vgrow="ALWAYS" />
+            <TextArea disable="true" prefHeight="223.0" prefWidth="200.0" promptText="Text Area" VBox.vgrow="ALWAYS" />
             <BorderPane prefHeight="102.0" prefWidth="200.0">
                <bottom>
-                  <Pane prefHeight="106.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <Pane prefHeight="179.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="9.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="183.0" text="Edit Matrix" />
-                        <Button layoutX="9.0" layoutY="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" text="Edit Matrix" />
-                        <RadioButton layoutX="14.0" layoutY="58.0" mnemonicParsing="false" text="Original Image" />
-                        <RadioButton layoutX="14.0" layoutY="84.0" mnemonicParsing="false" text="Modified Image" />
+                        <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Edit Matrix" />
+                        <Button layoutX="9.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Edit Matrix" />
+                        <RadioButton layoutX="9.0" layoutY="105.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="145.0" stylesheets="@styles.css" text="Original Image" />
+                        <RadioButton layoutX="9.0" layoutY="135.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="145.0" stylesheets="@styles.css" text="Modified Image" />
                      </children>
                   </Pane>
                </bottom></BorderPane>
