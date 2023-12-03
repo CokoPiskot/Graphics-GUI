@@ -15,16 +15,11 @@ import javafx.scene.Parent;
 
 public class HelloApplication extends Application {
 
-    @FXML
-
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-
-        HelloController controller = fxmlLoader.getController();
-        //controller.resizableTextArea();
 
         stage.setMinHeight(500);
         stage.setMinWidth(800);

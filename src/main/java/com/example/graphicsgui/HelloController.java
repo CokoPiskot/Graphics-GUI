@@ -24,19 +24,8 @@ import javafx.stage.Stage;
 public class HelloController {
 
     @FXML
-    private AnchorPane pane;
-
-    @FXML
-    private TextArea textArea;
-
-    @FXML
     private void exitButtonAction() {
         Platform.exit();
-    }
-
-    @FXML
-    public void resizableTextArea() {
-        pane.getChildren().add(textArea);
     }
 
     @FXML
