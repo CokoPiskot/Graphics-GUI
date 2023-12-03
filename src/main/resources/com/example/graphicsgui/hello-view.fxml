@@ -36,7 +36,7 @@
                 <MenuItem mnemonicParsing="false" text="Threshold" />
                 <MenuItem mnemonicParsing="false" text="OldStyleFilter" />
                 <MenuItem mnemonicParsing="false" text="BW-Filter" />
-                <MenuItem mnemonicParsing="false" text="Vinnette" />
+                <MenuItem mnemonicParsing="false" text="Vignette" />
                 <MenuItem mnemonicParsing="false" text="Colorizer" />
             </items>
 
@@ -80,8 +80,8 @@
                <bottom>
                   <Pane prefHeight="179.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Edit Matrix" />
-                        <Button layoutX="9.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Edit Matrix" />
+                        <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Generate Image" />
+                        <Button layoutX="9.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Restore Original Image" />
                         <RadioButton layoutX="9.0" layoutY="105.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="145.0" stylesheets="@styles.css" text="Original Image" />
                         <RadioButton layoutX="9.0" layoutY="135.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="145.0" stylesheets="@styles.css" text="Modified Image" />
                      </children>
