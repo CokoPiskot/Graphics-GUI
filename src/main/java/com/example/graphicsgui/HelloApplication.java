@@ -20,12 +20,11 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
-
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
         stage.setMinWidth(1000);
         stage.setMinHeight(700);
-        
+
         stage.setTitle("Graphics-GUI");
 
         stage.setScene(scene);
