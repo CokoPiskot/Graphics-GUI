@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -24,6 +25,9 @@ public class HelloApplication extends Application {
 
         stage.setMinWidth(1000);
         stage.setMinHeight(700);
+
+        Image icon = new Image(getClass().getResource("photos/icon.png").toExternalForm());
+        stage.getIcons().add(icon);
 
         stage.setTitle("Graphics-GUI");
 
