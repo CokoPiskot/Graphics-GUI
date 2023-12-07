@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="383.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.graphicsgui.HelloController">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.graphicsgui.HelloController">
    <left>
-      <Pane prefHeight="273.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="284.0" layoutY="44.0" text="V4A" textFill="#0084ff">
                <font>

@@ -23,16 +23,19 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
-        stage.setMinWidth(1000);
-        stage.setMinHeight(700);
 
         Image icon = new Image(getClass().getResource("photos/icon.png").toExternalForm());
         stage.getIcons().add(icon);
 
         stage.setTitle("Graphics-GUI");
 
+        stage.setMinWidth(1020);
+        stage.setMinHeight(740);
+
         stage.setScene(scene);
         stage.show();
+
+
     }
 
     public static void main(String[] args) {

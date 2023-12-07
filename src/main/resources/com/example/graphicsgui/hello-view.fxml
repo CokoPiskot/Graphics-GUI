@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.graphicsgui.HelloController">
+<BorderPane fx:id="basePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.graphicsgui.HelloController">
    <top>
-      <MenuBar prefHeight="25.0" prefWidth="653.0" BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="653.0" BorderPane.alignment="CENTER">
         <menus>
             <Menu mnemonicParsing="false">
                 <graphic>
                     <Label style="-fx-font-size: 16px;" text="File" />
                 </graphic>
             <items>
-              <MenuItem fx:id="selectImageButtonMenu" onAction="#selectImage" mnemonicParsing="false" text="Load image" />
+              <MenuItem fx:id="selectImageButtonMenu" mnemonicParsing="false" onAction="#selectImage" text="Load image" />
                 <MenuItem mnemonicParsing="false" text="Save image" />
             </items>
           </Menu>
@@ -39,6 +47,11 @@
                   <Label onMouseClicked="#aboutButtonAction" style="-fx-font-size: 16px;" text="About" />
               </graphic>
           </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <Label fx:id="mode" onMouseClicked="#nightButtonAction" style="-fx-font-size: 16px;" text="Dark Mode" />
+               </graphic>
+            </Menu>
 
             <Menu mnemonicParsing="false">
                 <graphic>
@@ -64,7 +77,7 @@
                <center>
                   <Pane prefHeight="170.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button onAction="#selectImage" fx:id="selectImageButton" layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Select Image File" />
+                        <Button fx:id="selectImageButton" layoutX="9.0" layoutY="14.0" mnemonicParsing="false" onAction="#selectImage" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Select Image File" />
                         <Button layoutX="9.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Edit Matrix" />
                      </children>
                   </Pane>
@@ -85,9 +98,9 @@
       </VBox>
    </right>
    <center>
-      <BorderPane prefHeight="200.0" prefWidth="503.0" BorderPane.alignment="CENTER">
-         <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
             <ImageView fx:id="imageView" fitHeight="528.0" fitWidth="645.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-         </top></BorderPane>
+         </center></BorderPane>
    </center>
 </BorderPane>
