@@ -43,27 +43,27 @@ public class HelloController {
     }
     @FXML
     private void selectImage() {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Select Image File");
-            FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter(".jpg .bmp .png", "*.jpg", "*.bmp", "*.png", "*.jpeg");   //vyfiltrování správných formátů
-            fileChooser.getExtensionFilters().add(imageFilter);
-            File selectedFile = fileChooser.showOpenDialog(null);
-            if (selectedFile != null) {
-                try {
-                    Image image = new Image(new FileInputStream(selectedFile));
-                    imageView.setImage(image);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Image File");
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter(".jpg .bmp .png", "*.jpg", "*.bmp", "*.png", "*.jpeg");   //vyfiltrování správných formátů
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            try {
+                Image image = Filters.Negative(new Image(new FileInputStream(selectedFile)));
+                imageView.setImage(image);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
+    }
 
 
     @FXML
     private void aboutButtonAction() throws IOException{
 
         //pokud už jedno okno je, tak se nevytváří znovu, jen se dá dopředu
-        if(aboutWindow != null)
+        if(aboutWindow != null && aboutWindow.isShowing())
         {
             aboutWindow.toFront();
             return;
@@ -103,12 +103,12 @@ public class HelloController {
             mode.setText("Light Mode");
         }
         else {
-                lightMode = true;
-                menuBar.setStyle("-fx-background-color: ;");
-                basePane.setStyle("-fx-background-color: ;");
-                radio1.setStyle("-fx-background-color: ;");
-                radio2.setStyle("-fx-background-color: ;");
-                mode.setText("Dark Mode");
+            lightMode = true;
+            menuBar.setStyle("-fx-background-color: ;");
+            basePane.setStyle("-fx-background-color: ;");
+            radio1.setStyle("-fx-background-color: ;");
+            radio2.setStyle("-fx-background-color: ;");
+            mode.setText("Dark Mode");
         }
     }
 }
