@@ -69,14 +69,14 @@
          <children>
             <BorderPane prefHeight="272.0" prefWidth="200.0">
                <bottom>
-                  <BorderPane prefHeight="70.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <BorderPane prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #B6BBC4;" BorderPane.alignment="CENTER">
                      <center>
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Apply Matrix Filter" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                </bottom>
                <center>
-                  <Pane prefHeight="170.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <Pane prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: #B6BBC4;" BorderPane.alignment="CENTER">
                      <children>
                         <Button fx:id="selectImageButton" layoutX="9.0" layoutY="14.0" mnemonicParsing="false" onAction="#selectImage" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Select Image File" />
                         <Button layoutX="9.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Edit Matrix" />
@@ -86,7 +86,7 @@
             <TextArea disable="true" prefHeight="183.0" prefWidth="183.0" promptText="Text Area" VBox.vgrow="ALWAYS" />
             <BorderPane prefHeight="102.0" prefWidth="200.0">
                <bottom>
-                  <Pane prefHeight="179.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <Pane prefHeight="179.0" prefWidth="200.0" style="-fx-background-color: #B6BBC4;" BorderPane.alignment="CENTER">
                      <children>
                         <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Generate Image" />
                         <Button layoutX="9.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Restore Original Image" />
