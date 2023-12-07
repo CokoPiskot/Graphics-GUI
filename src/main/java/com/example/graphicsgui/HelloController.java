@@ -32,6 +32,9 @@ public class HelloController {
     @FXML
     private BorderPane basePane;
 
+    @FXML
+    private RadioButton radio1, radio2;
+
     private boolean lightMode = true;
 
 
@@ -85,15 +88,19 @@ public class HelloController {
     @FXML
     private void nightButtonAction() {
         if (lightMode) {
-            menuBar.setStyle("-fx-background-color: darkgrey;");
-            basePane.setStyle("-fx-background-color: black;");
             lightMode = false;
+            menuBar.setStyle("-fx-background-color: #B6BBC4;");
+            basePane.setStyle("-fx-background-color: #161A30;");
+            radio1.setStyle("-fx-background-color: #B6BBC4;");
+            radio2.setStyle("-fx-background-color: #B6BBC4;");
             mode.setText("Light Mode");
         }
         else {
                 lightMode = true;
                 menuBar.setStyle("-fx-background-color: ;");
                 basePane.setStyle("-fx-background-color: ;");
+                radio1.setStyle("-fx-background-color: ;");
+                radio2.setStyle("-fx-background-color: ;");
                 mode.setText("Dark Mode");
         }
     }
