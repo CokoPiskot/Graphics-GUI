@@ -1,2 +1,4 @@
-package com.example.graphicsgui;public class Filters {
+package com.example.graphicsgui;
+public class Filters {
+
 }
