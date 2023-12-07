@@ -38,6 +38,18 @@ public class HelloController {
     private Stage aboutWindow = null;
 
     @FXML
+    private void negativeButtonAction() {
+        if(imageView.getImage() != null)
+            imageView.setImage(Filters.Negative(imageView.getImage()));
+    }
+
+    @FXML
+    private void bwfilterButtonAction() {
+        if(imageView.getImage() != null)
+            imageView.setImage(Filters.BlackAndWhite(imageView.getImage()));
+    }
+
+    @FXML
     private void exitButtonAction() {
         Platform.exit();
     }
@@ -50,7 +62,7 @@ public class HelloController {
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
             try {
-                Image image = Filters.Negative(new Image(new FileInputStream(selectedFile)));
+                Image image = new Image(new FileInputStream(selectedFile));
                 imageView.setImage(image);
             } catch (IOException e) {
                 e.printStackTrace();

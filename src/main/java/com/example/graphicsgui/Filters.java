@@ -11,7 +11,6 @@ public class Filters {
         PixelWriter writer = newImage.getPixelWriter();
         PixelReader reader = image.getPixelReader();
 
-        Color white = new Color(1.0, 1.0, 1.0, 1.0);
         for (int x = 0; x < image.getWidth(); x++) {
             for (int y = 0; y < image.getHeight(); y++) {
                 Color pixelColor = reader.getColor(x, y);
@@ -31,7 +30,19 @@ public class Filters {
     }
 
     public static Image BlackAndWhite(Image image) {
-        return image;
+        WritableImage newImage = new WritableImage((int) image.getWidth(), (int) image.getHeight());
+        PixelWriter writer = newImage.getPixelWriter();
+        PixelReader reader = image.getPixelReader();
+
+        for (int x = 0; x < image.getWidth(); x++) {
+            for (int y = 0; y < image.getHeight(); y++) {
+                Color pixelColor = reader.getColor(x, y);
+                double colorAverage = (pixelColor.getRed() + pixelColor.getGreen() + pixelColor.getBlue()) / 3;
+                writer.setColor(x, y, new Color(colorAverage, colorAverage, colorAverage, 1.0));
+            }
+        }
+
+        return newImage;
     }
 
 }
