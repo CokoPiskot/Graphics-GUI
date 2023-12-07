@@ -1,11 +1,9 @@
 package com.example.graphicsgui;
 
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -13,10 +11,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+
 
 public class HelloController {
 
@@ -47,7 +45,7 @@ public class HelloController {
     private void selectImage() {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Select Image File");
-            FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter(".jpg .bmp .png", "*.jpg", "*.bmp", "*.png", "*.jpeg");
+            FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter(".jpg .bmp .png", "*.jpg", "*.bmp", "*.png", "*.jpeg");   //vyfiltrování správných formátů
             fileChooser.getExtensionFilters().add(imageFilter);
             File selectedFile = fileChooser.showOpenDialog(null);
             if (selectedFile != null) {
@@ -64,7 +62,7 @@ public class HelloController {
     @FXML
     private void aboutButtonAction() throws IOException{
 
-        //pokud už jedno okno je, tak se nevyváří znovu, jen se dá dopředu
+        //pokud už jedno okno je, tak se nevytváří znovu, jen se dá dopředu
         if(aboutWindow != null)
         {
             aboutWindow.toFront();
