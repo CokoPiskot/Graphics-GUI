@@ -37,6 +37,7 @@ public class HelloController {
 
     private boolean lightMode = true;
 
+    private Stage aboutWindow = null;
 
     @FXML
     private void exitButtonAction() {
@@ -62,27 +63,35 @@ public class HelloController {
 
     @FXML
     private void aboutButtonAction() throws IOException{
+
+        //pokud už jedno okno je, tak se nevyváří znovu, jen se dá dopředu
+        if(aboutWindow != null)
+        {
+            aboutWindow.toFront();
+            return;
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("about-view.fxml"));
 
-        Stage stage = new Stage();
+        aboutWindow = new Stage();
 
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
 
 
         Image icon = new Image(getClass().getResource("photos/icon.png").toExternalForm());
-        stage.getIcons().add(icon);
+        aboutWindow.getIcons().add(icon);
 
-        stage.setTitle("About");
-        stage.setScene(scene);
+        aboutWindow.setTitle("About");
+        aboutWindow.setScene(scene);
 
-        stage.show();
+        aboutWindow.show();
 
-        stage.setMinWidth(600);
-        stage.setMinHeight(400);
+        aboutWindow.setMinWidth(600);
+        aboutWindow.setMinHeight(400);
 
-        stage.setMaxWidth(600);
-        stage.setMaxHeight(400);
+        aboutWindow.setMaxWidth(600);
+        aboutWindow.setMaxHeight(400);
     }
 
     @FXML
