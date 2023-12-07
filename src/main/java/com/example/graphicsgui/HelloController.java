@@ -1,5 +1,7 @@
 package com.example.graphicsgui;
 
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,6 +33,8 @@ public class HelloController {
     private BorderPane basePane;
 
     private boolean lightMode = true;
+
+
     @FXML
     private void exitButtonAction() {
         Platform.exit();
@@ -93,8 +97,4 @@ public class HelloController {
                 mode.setText("Dark Mode");
         }
     }
-
-
-
-
 }
