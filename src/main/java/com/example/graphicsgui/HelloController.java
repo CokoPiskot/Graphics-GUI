@@ -1,5 +1,7 @@
 package com.example.graphicsgui;
 
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,10 +30,13 @@ public class HelloController {
     private ImageView imageView;
 
     @FXML
-    private MenuItem selectImageButtonMenu;
+    private ToggleGroup toggleGroup;
 
     @FXML
-    private Button selectImageButton;
+    private RadioButton radio1;
+
+    @FXML
+    private RadioButton radio2;
 
     @FXML
     private void selectImage() {
@@ -72,8 +77,10 @@ public class HelloController {
         stage.show();
 
     }
-
-
-
-
-}
+    @FXML
+    private void initialize() {
+        toggleGroup = new ToggleGroup();
+        radio1.setToggleGroup(toggleGroup);
+        radio1.setSelected(true);
+        radio2.setToggleGroup(toggleGroup);
+    }}
