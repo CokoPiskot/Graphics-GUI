@@ -1,25 +1,38 @@
 package com.example.graphicsgui;
 
+import javafx.scene.SnapshotParameters;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.RadioButton;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Iterator;
 
 
 public class HelloController {
 
     @FXML
     private ImageView imageView;
+    private Image tempImage;
 
     @FXML
     private MenuBar menuBar;
@@ -36,6 +49,20 @@ public class HelloController {
     private boolean lightMode = true;
 
     private Stage aboutWindow = null;
+
+    private BufferedImage toBufferedImage(Image image)
+    {
+        PixelReader reader = image.getPixelReader();
+        BufferedImage bufferedImage = new BufferedImage((int)image.getWidth(), (int)image.getHeight(), BufferedImage.TYPE_INT_RGB);
+        for (int x = 0; x < image.getWidth(); x++) {
+            for (int y = 0; y < image.getHeight(); y++) {
+                Color clr = reader.getColor(x, y);
+                int rgb = ((int)(clr.getRed() * 255) << 16) + ((int)(clr.getGreen() * 255) << 8) + ((int)(clr.getBlue() * 255));
+                bufferedImage.setRGB(x, y, rgb);
+            }
+        }
+        return bufferedImage;
+    }
 
     @FXML
     private void negativeButtonAction() {
@@ -70,6 +97,28 @@ public class HelloController {
         }
     }
 
+    @FXML
+    private void saveImage() throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Image As");
+
+        FileChooser.ExtensionFilter pngFilter = new FileChooser.ExtensionFilter("PNG files (*.png)", ".png");
+        FileChooser.ExtensionFilter jpgFilter = new FileChooser.ExtensionFilter("JPEG files (*.jpg)", ".jpg", ".jpeg");
+        FileChooser.ExtensionFilter bmpFilter = new FileChooser.ExtensionFilter("BMP files (*.bmp)", ".bmp");
+        fileChooser.getExtensionFilters().addAll(pngFilter, jpgFilter, bmpFilter);
+
+        File file = fileChooser.showSaveDialog(null);
+        String extension = (fileChooser.getSelectedExtensionFilter().getExtensions().get(0)).substring(1);
+        System.out.println(extension);
+        if (file != null) {
+            try {
+                var asd = fileChooser.getSelectedExtensionFilter().getExtensions();
+                ImageIO.write(toBufferedImage(imageView.getImage()), extension, file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @FXML
     private void aboutButtonAction() throws IOException{

@@ -23,7 +23,7 @@
                 </graphic>
             <items>
               <MenuItem fx:id="selectImageButtonMenu" mnemonicParsing="false" onAction="#selectImage" text="Load image" />
-                <MenuItem mnemonicParsing="false" text="Save image" />
+                <MenuItem mnemonicParsing="false" text="Save image" onAction="#saveImage" />
             </items>
           </Menu>
 

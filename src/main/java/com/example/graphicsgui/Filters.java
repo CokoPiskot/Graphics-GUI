@@ -36,7 +36,7 @@ public class Filters {
         for (int x = 0; x < image.getWidth(); x++) {
             for (int y = 0; y < image.getHeight(); y++) {
                 Color pixelColor = reader.getColor(x, y);
-                double colorAverage = (pixelColor.getRed() + pixelColor.getGreen() + pixelColor.getBlue()) / 3;
+                double colorAverage = 0.299 * pixelColor.getRed() + 0.587 * pixelColor.getGreen() + 0.114 * pixelColor.getBlue();
                 writer.setColor(x, y, new Color(colorAverage, colorAverage, colorAverage, 1.0));
             }
         }
