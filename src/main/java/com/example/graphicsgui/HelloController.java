@@ -122,6 +122,13 @@ public class HelloController {
         }
     }
 
+    public void setAboutWindowStyle(Scene scene) {
+        if (lightMode) {
+            scene.getRoot().setStyle("-fx-background-color: #FFFFFF;");
+        } else {
+            scene.getRoot().setStyle("-fx-background-color: #161A30;");
+        }
+    }
     @FXML
     private void aboutButtonAction() throws IOException{
 
@@ -138,6 +145,7 @@ public class HelloController {
 
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
+        setAboutWindowStyle(scene);
 
 
         Image icon = new Image(getClass().getResource("photos/icon.png").toExternalForm());
