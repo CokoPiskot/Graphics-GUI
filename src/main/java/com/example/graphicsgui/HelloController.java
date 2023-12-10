@@ -91,6 +91,8 @@ public class HelloController {
             try {
                 Image image = new Image(new FileInputStream(selectedFile));
                 imageView.setImage(image);
+                radio1.setDisable(false);
+                radio2.setDisable(false);
             } catch (IOException e) {
                 e.printStackTrace();
             }

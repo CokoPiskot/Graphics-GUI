@@ -90,11 +90,11 @@
                      <children>
                         <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Generate Image" />
                         <Button layoutX="9.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="183.0" styleClass="button-7" stylesheets="@styles.css" text="Restore Original Image" />
-                        <RadioButton fx:id="radio1" layoutX="11.0" layoutY="105.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="179.0" selected="true" stylesheets="@styles.css" text="Original Image">
+                        <RadioButton fx:id="radio1" layoutX="11.0" layoutY="105.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="179.0" selected="true" stylesheets="@styles.css" text="Original Image" disable="true" >
                            <toggleGroup>
                               <ToggleGroup fx:id="toggleGroup" />
                            </toggleGroup></RadioButton>
-                        <RadioButton fx:id="radio2" layoutX="11.0" layoutY="134.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="179.0" stylesheets="@styles.css" text="Modified Image" toggleGroup="$toggleGroup" />
+                        <RadioButton fx:id="radio2" layoutX="11.0" layoutY="134.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="179.0" stylesheets="@styles.css" text="Modified Image" toggleGroup="$toggleGroup" disable="true" />
                      </children>
                   </Pane>
                </bottom></BorderPane>
