@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -32,6 +33,11 @@ public class HelloController {
 
     @FXML
     private ImageView imageView;
+
+    @FXML
+    private Image originalImage;
+
+    @FXML
     private Image tempImage;
 
     @FXML
@@ -46,18 +52,20 @@ public class HelloController {
     @FXML
     private RadioButton radio1, radio2;
 
+    @FXML
+    private TextArea textArea;
+
     private boolean lightMode = true;
 
     private Stage aboutWindow = null;
 
-    private BufferedImage toBufferedImage(Image image)
-    {
+    private BufferedImage toBufferedImage(Image image) {
         PixelReader reader = image.getPixelReader();
-        BufferedImage bufferedImage = new BufferedImage((int)image.getWidth(), (int)image.getHeight(), BufferedImage.TYPE_INT_RGB);
+        BufferedImage bufferedImage = new BufferedImage((int) image.getWidth(), (int) image.getHeight(), BufferedImage.TYPE_INT_RGB);
         for (int x = 0; x < image.getWidth(); x++) {
             for (int y = 0; y < image.getHeight(); y++) {
                 Color clr = reader.getColor(x, y);
-                int rgb = ((int)(clr.getRed() * 255) << 16) + ((int)(clr.getGreen() * 255) << 8) + ((int)(clr.getBlue() * 255));
+                int rgb = ((int) (clr.getRed() * 255) << 16) + ((int) (clr.getGreen() * 255) << 8) + ((int) (clr.getBlue() * 255));
                 bufferedImage.setRGB(x, y, rgb);
             }
         }
@@ -66,20 +74,27 @@ public class HelloController {
 
     @FXML
     private void negativeButtonAction() {
-        if(imageView.getImage() != null)
-            imageView.setImage(Filters.Negative(imageView.getImage()));
+        radio2.setSelected(true);
+        textArea.appendText("\nNegative filter loaded");
+        if (imageView.getImage() != null)
+            tempImage = Filters.Negative(imageView.getImage());
+        imageView.setImage(tempImage);
     }
 
     @FXML
     private void bwfilterButtonAction() {
-        if(imageView.getImage() != null)
-            imageView.setImage(Filters.BlackAndWhite(imageView.getImage()));
+        radio2.setSelected(true);
+        textArea.appendText("\nB-W filter loaded");
+        if (imageView.getImage() != null)
+            tempImage = Filters.BlackAndWhite(imageView.getImage());
+        imageView.setImage(tempImage);
     }
 
     @FXML
     private void exitButtonAction() {
         Platform.exit();
     }
+
     @FXML
     private void selectImage() {
         FileChooser fileChooser = new FileChooser();
@@ -89,10 +104,12 @@ public class HelloController {
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
             try {
-                Image image = new Image(new FileInputStream(selectedFile));
-                imageView.setImage(image);
+                originalImage = new Image(new FileInputStream(selectedFile));
+                imageView.setImage(originalImage);
+                tempImage = originalImage;
                 radio1.setDisable(false);
                 radio2.setDisable(false);
+                textArea.setText(selectedFile.getName() + " loaded");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -116,25 +133,18 @@ public class HelloController {
             try {
                 var asd = fileChooser.getSelectedExtensionFilter().getExtensions();
                 ImageIO.write(toBufferedImage(imageView.getImage()), extension, file);
+                textArea.appendText("\n" + file.getName() + "saved");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void setAboutWindowStyle(Scene scene) {
-        if (lightMode) {
-            scene.getRoot().setStyle("-fx-background-color: #FFFFFF;");
-        } else {
-            scene.getRoot().setStyle("-fx-background-color: #161A30;");
-        }
-    }
     @FXML
-    private void aboutButtonAction() throws IOException{
+    private void aboutButtonAction() throws IOException {
 
         //pokud už jedno okno je, tak se nevytváří znovu, jen se dá dopředu
-        if(aboutWindow != null && aboutWindow.isShowing())
-        {
+        if (aboutWindow != null && aboutWindow.isShowing()) {
             aboutWindow.toFront();
             return;
         }
@@ -144,8 +154,6 @@ public class HelloController {
         aboutWindow = new Stage();
 
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-
-        setAboutWindowStyle(scene);
 
 
         Image icon = new Image(getClass().getResource("photos/icon.png").toExternalForm());
@@ -161,6 +169,18 @@ public class HelloController {
 
         aboutWindow.setMaxWidth(600);
         aboutWindow.setMaxHeight(400);
+
+        if (!lightMode) {
+            Label classText = (Label) scene.lookup("#classText");
+            Label authorsText = (Label) scene.lookup("#authorsText");
+            Label nameText = (Label) scene.lookup("#nameText");
+            Label date = (Label) scene.lookup("#date");
+            classText.setTextFill(Color.WHITE);
+            authorsText.setTextFill(Color.WHITE);
+            nameText.setTextFill(Color.WHITE);
+            date.setTextFill(Color.WHITE);
+            scene.getRoot().setStyle("-fx-background-color: #161A30;");
+        }
     }
 
     @FXML
@@ -172,8 +192,7 @@ public class HelloController {
             radio1.setStyle("-fx-background-color: #B6BBC4;");
             radio2.setStyle("-fx-background-color: #B6BBC4;");
             mode.setText("Light Mode");
-        }
-        else {
+        } else {
             lightMode = true;
             menuBar.setStyle("-fx-background-color: ;");
             basePane.setStyle("-fx-background-color: ;");
@@ -181,5 +200,23 @@ public class HelloController {
             radio2.setStyle("-fx-background-color: ;");
             mode.setText("Dark Mode");
         }
+    }
+
+    @FXML
+    private void radioButtonController() {
+        if (radio1.isSelected()) {
+            imageView.setImage(originalImage);
+        }
+        else if(radio2.isSelected()) {
+            imageView.setImage(tempImage);
+        }
+    }
+
+    @FXML
+    private void restoreOriginalImage() {
+        radio1.setSelected(true);
+        tempImage = originalImage;
+        imageView.setImage(originalImage);
+        textArea.setText("Image restored");
     }
 }

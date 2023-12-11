@@ -1,5 +1,4 @@
 package com.example.graphicsgui;
-import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.*;
 import javafx.scene.paint.Color;
 

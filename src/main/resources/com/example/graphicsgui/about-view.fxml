@@ -11,22 +11,22 @@
    <left>
       <Pane prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="284.0" layoutY="44.0" text="V4A" textFill="#0084ff">
+            <Label fx:id="classText" layoutX="284.0" layoutY="44.0" text="V4A" textFill="#0084ff">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="David Křesťan, David Franc, Marek Murín, Petr Čamlík">
+            <Label fx:id="authorsText" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="David Křesťan, David Franc, Marek Murín, Petr Čamlík">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="230.0" layoutY="149.0" text="JavaFX Photo Editor">
+            <Label fx:id="nameText" layoutX="230.0" layoutY="149.0" text="JavaFX Photo Editor">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="287.0" layoutY="170.0" text="2023" />
+            <Label fx:id="date" layoutX="287.0" layoutY="170.0" text="2023" />
             <ImageView fitHeight="183.0" fitWidth="191.0" layoutX="208.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@photos/nikocado.jpg" />
