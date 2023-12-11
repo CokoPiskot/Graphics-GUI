@@ -1,5 +1,9 @@
 package com.example.graphicsgui;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -16,10 +20,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
+import javax.print.attribute.standard.Media;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
@@ -27,9 +36,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Objects;
 
 
 public class HelloController {
+
 
     @FXML
     private ImageView imageView;
@@ -57,7 +68,10 @@ public class HelloController {
 
     private boolean lightMode = true;
 
+    private Clip clip;
+
     private Stage aboutWindow = null;
+
 
     private BufferedImage toBufferedImage(Image image) {
         PixelReader reader = image.getPixelReader();
@@ -74,6 +88,7 @@ public class HelloController {
 
     @FXML
     private void negativeButtonAction() {
+        clickSound();
         radio2.setSelected(true);
         textArea.appendText("\nNegative filter loaded");
         if (imageView.getImage() != null)
@@ -83,6 +98,7 @@ public class HelloController {
 
     @FXML
     private void bwfilterButtonAction() {
+        clickSound();
         radio2.setSelected(true);
         textArea.appendText("\nB-W filter loaded");
         if (imageView.getImage() != null)
@@ -92,11 +108,13 @@ public class HelloController {
 
     @FXML
     private void exitButtonAction() {
+        clickSound();
         Platform.exit();
     }
 
     @FXML
     private void selectImage() {
+        clickSound();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Image File");
         FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter(".jpg .bmp .png", "*.jpg", "*.bmp", "*.png", "*.jpeg");   //vyfiltrování správných formátů
@@ -118,6 +136,7 @@ public class HelloController {
 
     @FXML
     private void saveImage() throws IOException {
+        clickSound();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Image As");
 
@@ -142,6 +161,9 @@ public class HelloController {
 
     @FXML
     private void aboutButtonAction() throws IOException {
+
+        clickSound();
+        playMusic();
 
         //pokud už jedno okno je, tak se nevytváří znovu, jen se dá dopředu
         if (aboutWindow != null && aboutWindow.isShowing()) {
@@ -181,10 +203,47 @@ public class HelloController {
             date.setTextFill(Color.WHITE);
             scene.getRoot().setStyle("-fx-background-color: #161A30;");
         }
+        else {
+            Color[] colors = {Color.RED, Color.GREEN, Color.BLUE};
+
+            Timeline timeline = new Timeline();
+            for (int i = 0; i < colors.length; i++) {
+                final Color color = colors[i];
+                KeyFrame keyFrame = new KeyFrame(Duration.seconds(i + 1), new KeyValue(scene.getRoot().styleProperty(), "-fx-background-color: rgba("
+                        + (color.getRed() * 255) + ","
+                        + (color.getGreen() * 255) + ","
+                        + (color.getBlue() * 255) + ", 1.0);"));
+                timeline.getKeyFrames().add(keyFrame);
+            }
+            timeline.setCycleCount(Timeline.INDEFINITE);
+
+            // Play the color-cycling animation
+            timeline.play();
+        }
+
+        aboutWindow.setOnCloseRequest(windowEvent -> clip.stop());
+
+        ImageView aboutImageView = (ImageView)  scene.lookup("#aboutImageView");
+        ImageView aboutImageView_2 = (ImageView)  scene.lookup("#aboutImageView_2");
+
+
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(5), aboutImageView);
+        translateTransition.setToX(50);
+        translateTransition.setToY(-50);
+
+        TranslateTransition translateTransition_2 = new TranslateTransition(Duration.seconds(5), aboutImageView_2);
+        translateTransition_2.setToX(130);
+
+        translateTransition.setCycleCount(TranslateTransition.INDEFINITE);
+
+        translateTransition.play();
+        translateTransition_2.play();
+
     }
 
     @FXML
     private void nightButtonAction() {
+        clickSound();
         if (lightMode) {
             lightMode = false;
             menuBar.setStyle("-fx-background-color: #B6BBC4;");
@@ -204,6 +263,7 @@ public class HelloController {
 
     @FXML
     private void radioButtonController() {
+        clickSound();
         if (radio1.isSelected()) {
             imageView.setImage(originalImage);
         }
@@ -214,9 +274,45 @@ public class HelloController {
 
     @FXML
     private void restoreOriginalImage() {
+        clickSound();
         radio1.setSelected(true);
         tempImage = originalImage;
         imageView.setImage(originalImage);
         textArea.setText("Image restored");
     }
+
+    private void clickSound() {
+        String path = Objects.requireNonNull(getClass().getResource("audio/audio.wav")).getPath();
+        try {
+            File musicPath = new File(path);
+            if (musicPath.exists())
+            {
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void playMusic() {
+        String path = Objects.requireNonNull(getClass().getResource("audio/music.wav")).getPath();
+        try {
+            File musicPath = new File(path);
+            if (musicPath.exists())
+            {
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+                clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
