@@ -27,12 +27,24 @@
                </font>
             </Label>
             <Label fx:id="date" layoutX="287.0" layoutY="170.0" text="2023" />
-            <ImageView fitHeight="183.0" fitWidth="191.0" layoutX="208.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="aboutImageView" fitHeight="183.0" fitWidth="191.0" layoutX="208.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@photos/nikocado.jpg" />
                </image>
             </ImageView>
+            <Pane layoutY="100.0" prefHeight="200.0" prefWidth="60.0">
+               <children>
+                  <ImageView fx:id="aboutImageView_2" fitHeight="207.0" fitWidth="342.0" layoutX="-350.0" layoutY="-13.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@photos/photo_1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
