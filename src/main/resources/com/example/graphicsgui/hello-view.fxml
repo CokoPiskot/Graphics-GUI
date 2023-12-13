@@ -32,14 +32,14 @@
                         <Label style="-fx-font-size: 16px;" text="Filters" />
                     </graphic>
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Negative" onAction="#negativeButtonAction"/>
-                        <MenuItem mnemonicParsing="false" text="Pixelizer"/>
-                        <MenuItem mnemonicParsing="false" text="Identity" />
-                        <MenuItem mnemonicParsing="false" text="Threshold" />
-                        <MenuItem mnemonicParsing="false" text="Old-Style-Filter" />
-                        <MenuItem mnemonicParsing="false" text="BW-Filter"  onAction="#bwfilterButtonAction"/>
-                        <MenuItem mnemonicParsing="false" text="Vignette" />
-                        <MenuItem mnemonicParsing="false" text="Colorizer" />
+                        <MenuItem fx:id="negative" mnemonicParsing="false" text="Negative" onAction="#negativeButtonAction" disable="true"/>
+                        <MenuItem fx:id="pixelizer" mnemonicParsing="false" text="Pixelizer" disable="true"/>
+                        <MenuItem fx:id="identity" mnemonicParsing="false" text="Identity" disable="true"/>
+                        <MenuItem fx:id="threshold" mnemonicParsing="false" text="Threshold" disable="true"/>
+                        <MenuItem fx:id="oldStyleFilter" mnemonicParsing="false" text="Old-Style-Filter" disable="true"/>
+                        <MenuItem fx:id="bwFilter" mnemonicParsing="false" text="BW-Filter"  onAction="#bwfilterButtonAction" disable="true"/>
+                        <MenuItem fx:id="vignette" mnemonicParsing="false" text="Vignette" disable="true"/>
+                        <MenuItem fx:id="colorizer" mnemonicParsing="false" text="Colorizer" disable="true"/>
                     </items>
 
                 </Menu>
