@@ -1,5 +1,6 @@
 package com.example.graphicsgui;
 
+import javafx.scene.control.MenuItem;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -72,6 +73,30 @@ public class HelloController {
 
     private Stage aboutWindow = null;
 
+    @FXML
+    private MenuItem negative;
+
+    @FXML
+    private MenuItem pixelizer;
+
+    @FXML
+    private MenuItem identity;
+
+    @FXML
+    private MenuItem threshold;
+
+    @FXML
+    private MenuItem oldStyleFilter;
+
+    @FXML
+    private MenuItem bwFilter;
+
+    @FXML
+    private MenuItem vignette;
+
+    @FXML
+    private MenuItem colorizer;
+
 
     private BufferedImage toBufferedImage(Image image) {
         PixelReader reader = image.getPixelReader();
@@ -127,6 +152,16 @@ public class HelloController {
                 tempImage = originalImage;
                 radio1.setDisable(false);
                 radio2.setDisable(false);
+                negative.setDisable(false);
+                pixelizer.setDisable(false);
+                identity.setDisable(false);
+                threshold.setDisable(false);
+                oldStyleFilter.setDisable(false);
+                bwFilter.setDisable(false);
+                vignette.setDisable(false);
+                colorizer.setDisable(false);
+
+
                 textArea.setText(selectedFile.getName() + " loaded");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -313,6 +348,7 @@ public class HelloController {
         catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
 }
