@@ -150,7 +150,7 @@ public class HelloController {
         System.out.println(extension);
         if (file != null) {
             try {
-                var asd = fileChooser.getSelectedExtensionFilter().getExtensions();
+                var asd = fileChooser.getSelectedExtensionFilter().getExtensions();     //?
                 ImageIO.write(toBufferedImage(imageView.getImage()), extension, file);
                 textArea.appendText("\n" + file.getName() + "saved");
             } catch (IOException e) {
