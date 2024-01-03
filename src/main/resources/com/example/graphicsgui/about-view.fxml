@@ -7,26 +7,203 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.layout.VBox?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.graphicsgui.HelloController">
    <left>
       <Pane prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
+            <VBox fx:id="aboutCredits">
             <Label fx:id="classText" layoutX="284.0" layoutY="44.0" text="V4A" textFill="#0084ff">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="authorsText" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="David Křesťan, David Franc, Marek Murín, Petr Čamlík">
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead Programmer">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead Technical Advisor">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead API engineer">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="authorsText" style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Křesťan Industries CEO:">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="David Křesťan">
+               <font>
+                  <Font  name="Calibri" size="17.0" />
+               </font>
+            </Label>
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead Quality Assurance Engineer">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead DevOps Engineer">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead Integration Specialist">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead Automation Engineer">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead Performance Engineer">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead Machine Learning Engineer">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead Accessibility Specialist">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Programmer #2">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="David Franc">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead Community Liaison">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Lead Release Manager">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Petr Čamlík">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+
+            <Label style="-fx-font-weight: bold;" layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Programmer #3">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="82.0" layoutY="67.0" prefHeight="30.0" prefWidth="437.0" text="Marek M A R M U Murín">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Label>
             <Label fx:id="nameText" layoutX="230.0" layoutY="149.0" text="JavaFX Photo Editor">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="date" layoutX="287.0" layoutY="170.0" text="2023" />
+               <Label layoutX="230.0" layoutY="149.0" text="KESŤAN INDUSTRIES 2023 ©">
+                  <font>
+                     <Font name="System Bold" size="15.0" />
+                  </font>
+               </Label>
+            </VBox>
             <ImageView fx:id="aboutImageView" fitHeight="183.0" fitWidth="191.0" layoutX="208.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@photos/nikocado.jpg" />

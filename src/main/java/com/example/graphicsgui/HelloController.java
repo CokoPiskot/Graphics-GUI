@@ -1,10 +1,7 @@
 package com.example.graphicsgui;
 
+import javafx.animation.*;
 import javafx.scene.control.MenuItem;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -18,6 +15,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -260,7 +258,7 @@ public class HelloController {
 
         ImageView aboutImageView = (ImageView)  scene.lookup("#aboutImageView");
         ImageView aboutImageView_2 = (ImageView)  scene.lookup("#aboutImageView_2");
-
+        VBox scrollingText = (VBox) scene.lookup("#aboutCredits");
 
         TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(5), aboutImageView);
         translateTransition.setToX(50);
@@ -268,11 +266,23 @@ public class HelloController {
 
         TranslateTransition translateTransition_2 = new TranslateTransition(Duration.seconds(5), aboutImageView_2);
         translateTransition_2.setToX(130);
+        translateTransition_2.setDelay(Duration.seconds(3));
+        translateTransition_2.setAutoReverse(true);
+
+        TranslateTransition translateTransition_3 = new TranslateTransition(Duration.seconds(5), scrollingText);
+        translateTransition_3.setToY(-1000);
+        translateTransition_3.setFromX(170);
+        translateTransition_3.setFromY(300);
 
         translateTransition.setCycleCount(TranslateTransition.INDEFINITE);
+        translateTransition_2.setCycleCount(TranslateTransition.INDEFINITE);
+        translateTransition_3.setCycleCount(TranslateTransition.INDEFINITE);
 
+        translateTransition_3.setRate(0.1);
+        translateTransition_3.setInterpolator(Interpolator.LINEAR);
         translateTransition.play();
         translateTransition_2.play();
+        translateTransition_3.play();
 
     }
 
