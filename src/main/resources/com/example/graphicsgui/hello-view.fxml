@@ -34,8 +34,8 @@
                     <items>
                         <MenuItem fx:id="negative" mnemonicParsing="false" text="Negative" onAction="#negativeButtonAction" disable="true"/>
                         <MenuItem fx:id="pixelizer" mnemonicParsing="false" text="Pixelizer" disable="true"/>
-                        <MenuItem fx:id="identity" mnemonicParsing="false" text="Identity" disable="true"/>
-                        <MenuItem fx:id="threshold" mnemonicParsing="false" text="Threshold" disable="true"/>
+                        <MenuItem fx:id="identity" mnemonicParsing="false" text="Gaussian Blurr" onAction="#blurButtonAction" disable="true"/>
+                        <MenuItem fx:id="threshold" mnemonicParsing="false" text="EdgeDetection" onAction="#edgeDetectionButtonAction" disable="true"/>
                         <MenuItem fx:id="oldStyleFilter" mnemonicParsing="false" text="Old-Style-Filter" disable="true"/>
                         <MenuItem fx:id="bwFilter" mnemonicParsing="false" text="BW-Filter"  onAction="#bwfilterButtonAction" disable="true"/>
                         <MenuItem fx:id="vignette" mnemonicParsing="false" text="Vignette" disable="true"/>
