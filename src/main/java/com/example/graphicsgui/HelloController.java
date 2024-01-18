@@ -130,6 +130,27 @@ public class HelloController {
     }
 
     @FXML
+    private void blurButtonAction()
+    {
+        clickSound();
+        radio2.setSelected(true);
+        textArea.appendText("\nIdentity filter loaded");
+        if (imageView.getImage() != null)
+            tempImage = Filters.Blur(imageView.getImage());
+        imageView.setImage(tempImage);
+    }
+    @FXML
+    private void edgeDetectionButtonAction()
+    {
+        clickSound();
+        radio2.setSelected(true);
+        textArea.appendText("\nIdentity filter loaded");
+        if (imageView.getImage() != null)
+            tempImage = Filters.EdgeDetection(imageView.getImage());
+        imageView.setImage(tempImage);
+    }
+
+    @FXML
     private void exitButtonAction() {
         clickSound();
         Platform.exit();
